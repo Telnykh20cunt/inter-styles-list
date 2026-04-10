@@ -1,0 +1,229 @@
+/* 1. ПІДКЛЮЧЕННЯ ШРИФТІВ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@700&display=swap');
+
+:root {
+    /* КОЛЬОРОВА ПАЛІТРА*/
+    --bg-main: #FFFFFF;           
+    --bg-accent: #F0F0F0;         
+    --text-main: #1A1A1A;         
+    --color-primary: #007BFF;     
+    --color-secondary: #FFC107;  
+    --border-color: #1A1A1A;     
+    
+    /* РОЗМІРИ ТЕКСТУ */
+    --size-h1: 64px;        
+    --size-h2: 48px;        
+    --size-h3: 24px;
+    --size-text: 18px;      
+    --size-nav: 16px;       
+
+    /* НАЛАШТУВАННЯ */
+    --border-width: 2px;
+    --transition: all 0.2s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ШРИФТИ ДЛЯ ЗАГОЛОВКІВ */
+h1, h2, h3, .nav-menu a, .btn, .style-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+h1 { font-size: var(--size-h1); line-height: 1; margin-bottom: 20px; }
+h2 { font-size: var(--size-h2); line-height: 1.1; margin-bottom: 30px; }
+h3 { font-size: var(--size-h3); }
+
+/* ПОСИЛАННЯ ТА КНОПКИ */
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--color-primary);
+    color: white;
+    border: var(--border-width) solid var(--border-color);
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--color-secondary);
+    color: var(--text-main);
+    transform: translate(-4px, -4px);
+    box-shadow: 4px 4px 0px var(--border-color);
+}
+
+/* Кнопка Назад */
+.btn-back {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    margin-top: 50px;
+}
+
+/* 3. НАВІГАЦІЯ */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: var(--bg-main);
+    border-bottom: var(--border-width) solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    color: var(--color-primary);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-menu a {
+    font-size: var(--size-nav);
+    padding: 5px 0;
+}
+
+.nav-menu a:hover {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+}
+
+/* 4. ГОЛОВНИЙ БАНЕР*/
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 70vh;
+    padding: 0 10%;
+    background-color: var(--bg-accent);
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.header h1 span {
+    color: var(--color-primary);
+}
+
+.header p {
+    font-size: var(--size-text);
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+/* 5. СПИСОК) */
+.styles-list {
+    padding: 80px 5%;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.style-card {
+    background-color: var(--bg-main);
+    border: var(--border-width) solid var(--border-color);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
+    transition: var(--transition);
+}
+
+.style-card:hover {
+    background-color: var(--color-primary);
+    border-color: var(--border-color);
+    transform: translate(-8px, -8px);
+    box-shadow: 8px 8px 0px var(--border-color);
+}
+
+.style-card:hover .style-name,
+.style-card:hover .style-psych {
+    color: white;
+}
+
+.style-card:hover .arrow {
+    color: var(--color-secondary);
+}
+
+.style-name {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.style-psych {
+    font-size: 16px;
+    font-weight: 400;
+    color: #555;
+}
+
+.arrow {
+    font-size: 32px;
+    color: var(--color-primary);
+    align-self: flex-end;
+}
+
+/* 6. СТОРІНКА ДЕТАЛЕЙ СТИЛЮ */
+.style-detail {
+    padding: 80px 10%;
+}
+
+.detail-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Дві колонки */
+    gap: 50px;
+    align-items: start;
+}
+
+.detail-image img {
+    width: 100%;
+    height: auto;
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: 10px 10px 0px var(--border-color);
+}
+
+.detail-text h2 {
+    color: var(--color-primary);
+}
+
+.detail-text .psych-effect {
+    background-color: var(--bg-accent);
+    padding: 20px;
+    border-left: 5px solid var(--color-primary);
+    margin-top: 30px;
+    font-style: italic;
+}
+
+/* 7. ФУТЕР */
+.footer {
+    padding: 40px 5%;
+    background-color: var(--border-color);
+    color: var(--bg-main);
+    text-align: center;
+    border-top: var(--border-width) solid var(--border-color);
+}
